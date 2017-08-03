@@ -1,0 +1,59 @@
+*
+persons
+ID,Name,E-mail
+1,sama mamdouh,samamamdouh832@yahoo.com
+2,sara maher,saramaher442@yahoo.com
+3,sara ashraf,saraashraf566@yahoo.com
+4,sara samir,sarasamir555@yahoo.com
+5,sara mamdouh,saramamdouh44@yahoo.com
+*
+projects
+num,name,num_mempers
+project 1,hosbital system,5 members
+project 2,library system,4 members
+project 3,candy crash game,5 members
+project 4,chess game,6 members
+*
+employees
+num,name,salary
+employee 1,sales department,1000 L.E
+employee 2,IT department,2000 L.E
+employee 3,markting department,3000 L.E
+
+  XmlDocument doc = new XmlDocument();
+            doc.Load("Data.xml");
+            string table_name = textBox3.Text;
+            string col_name = textBox2.Text;
+            XmlNodeList list = doc.GetElementsByTagName(table_name);
+            List<string> constraints = new List<string>();
+            for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
+            {
+                constraints.Add(checkedListBox1.CheckedItems[i].ToString());
+                if (constraints[i] == "Not NULL")
+                { 
+                    dataGridView1.Rows.Clear();
+                     XmlNodeList child = list[i].ChildNodes;
+                    for (int j = 0; j < list.Count; j++)
+                    {
+                        for (int k = 0; k < child.Count; k++)
+                        {
+
+                            
+                            if (child[k].Name == col_name && child[k].Value == null)
+                            {
+                                if (dataGridView1.ColumnCount == 0)
+                                {
+                                    for (int T = 0; T < child.Count; T++)
+                                        dataGridView1.Columns.Add(child[T].Name, child[T].Name);
+
+
+                                }
+                                    for (int s = 0; s < child.Count; s++)
+                                        dataGridView1.Rows.Add(new string[] { child[s].InnerText }.ToArray());
+                                
+                            }
+                            
+                        }
+                    }
+                }
+            }

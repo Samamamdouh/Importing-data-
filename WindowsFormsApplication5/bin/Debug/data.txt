@@ -1,0 +1,20 @@
+table
+employees
+emp_num,department,salary
+employee 1,sales,1000 
+employee 2,IT,2000 
+employee 3,markting,3000 
+employee 4,dep_4,3000 
+table
+projects
+proj_num,name,num_mempers
+project 1 ,hosbital system,5 members
+project 2,library system,4 members
+project 3,candy crash game,5 members
+project 4,chess game,6 members
+table
+persons
+ID,Name,E-mail
+ ,sama mamdouh,samamamdouh832@yahoo.com
+1,sara maher,saramaher442@yahoo.com
+1,sara ashraf,saraashraf566@yahoo.com
